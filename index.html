@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>智慧校园态势感知中心</title>
+    <script src="./common.js"></script>>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    <link rel="stylesheet" href="./common.css" />
+</head>
+<body>
+
+<header>
+    <h1>📡 智慧校园态势感知中心</h1>
+    <div class="sys-time" id="clock">2025-01-01 12:00:00</div>
+</header>
+
+<div class="dashboard-container">
+    <div class="col-side">
+        <div class="card">
+            <h3>人流量趋势监测</h3>
+            <div id="chart-trend" class="chart-box"></div>
+        </div>
+        <div class="card">
+            <h3>区域热力分布占比</h3>
+            <div id="chart-pie" class="chart-box"></div>
+        </div>
+        <div class="card">
+            <h3>入校权限分析</h3>
+            <div id="chart-radar" class="chart-box"></div>
+        </div>
+    </div>
+
+    <div class="col-center">
+        <div class="map-stage" id="mapStage">
+            <svg class="svg-layer"><path id="dynamic-connection" class="connection-path" d="" /></svg>
+            
+            <div class="node-btn type-edu" id="btn-zhijin" onclick="handleSelect('zhijin')"><div class="status-led"></div>知津楼</div>
+            <div class="node-btn type-edu" id="btn-gezhi" onclick="handleSelect('gezhi')"><div class="status-led"></div>格致楼</div>
+            <div class="node-btn type-lib" id="btn-library" onclick="handleSelect('library')"><div class="status-led"></div>博文馆 (图书馆)</div>
+            <div class="node-btn type-food" id="btn-canteen1" onclick="handleSelect('canteen1')"><div class="status-led"></div>一食堂</div>
+            <div class="node-btn type-food" id="btn-canteen2" onclick="handleSelect('canteen2')"><div class="status-led"></div>二食堂</div>
+            <div class="node-btn type-food" id="btn-canteen3" onclick="handleSelect('canteen3')"><div class="status-led"></div>三食堂</div>
+        </div>
+
+        <div class="info-bar">
+            <div>
+                <span style="color:#64748b; font-size:12px;">当前选中目标</span><br>
+                <span id="info-name" style="font-size:16px; font-weight:bold; color:var(--c-blue);">正在初始化...</span>
+            </div>
+            <div style="text-align:right;">
+                <span style="color:#64748b; font-size:12px;">状态摘要</span><br>
+                <span id="info-status" style="font-family:'Courier New'; font-weight:bold;">WAITING FOR SIGNAL</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-side">
+        <div class="card">
+            <h3>实时拥挤指数</h3>
+            <div id="chart-gauge" class="chart-box"></div>
+        </div>
+        <div class="card">
+            <h3>人群结构画像</h3>
+            <div id="chart-bar" class="chart-box"></div>
+        </div>
+        <div class="card">
+            <h3>环境舒适度(摄氏度/百分之)</h3>
+            <div id="chart-env" class="chart-box"></div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
